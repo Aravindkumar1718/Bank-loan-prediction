@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/box.css">
+    <title>Loan Prediction</title>
+</head>
+<body>
+    <h2>Loan Eligibility Prediction</h2>
+    <form action="/predict" method="post">
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender">
+            <option value=1>Male</option>
+            <option value=0>Female</option>
+        </select><br><br>
+        
+        <label for="married">Marital Status:</label>
+        <select id="married" name="married">
+            <option value=1>Yes</option>
+            <option value=0>No</option>
+        </select><br><br>
+        
+        <label for="dependents">Number of Dependents on the Person:</label>
+        <input type="number" id="dependents" name="dependents"><br><br>
+        
+        <label for="education">Education:</label>
+        <select id="education" name="education">
+            <option value=1>Graduate</option>
+            <option value=0>Not Graduate</option>
+        </select><br><br>
+        
+        <label for="self_employed">Self Employed:</label>
+        <select id="self_employed" name="self_employed">
+            <option value=1>Yes</option>
+            <option value=0>No</option>
+        </select><br><br>
+        
+        <label for="credit_history">Credit History:</label>
+        <select id="credit_history" name="credit_history">
+            <option value=1>Yes</option>
+            <option value=0>No</option>
+        </select><br><br>
+        
+        <label for="property_area">Property Area:</label>
+        <select id="property_area" name="property_area">
+            <option value=0>Urban</option>
+            <option value=1>Semiurban</option>
+            <option value=2>Rural</option>
+        </select><br><br>
+        
+        <label for="income">Income:</label>
+        <select id="income" name="income">
+            <option value=0>LOW</option>
+            <option value=1>MEDIUM</option>
+            <option value=2>HIGH</option>
+        </select><br><br>
+        
+        <input type="submit" value="Predict">
+    </form>
+
+    {% if prediction_result %}
+    <div id="prediction_result">
+        <h3>Loan Application Status:</h3>
+        <p>{{ prediction_result }}</p>
+    </div>
+    {% endif %}
+</body>
+</html>
